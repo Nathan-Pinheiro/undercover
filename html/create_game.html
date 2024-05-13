@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="css/create_game_style.css">
+        <title>Undercover</title>
+    </head>
+    <body>
+        <span>
+            <svg id="back_arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" onclick="goBackArrowClicked()">
+                <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
+            </svg>
+            <h3 id="title">Créer</h3>
+        </span>
+        <div>
+            <div id="character_picker" class="rect">
+                <img class="character_image" src="./resources/character1.png" alt="caracter1">
+            </div>
+            <div id="left_arrow_character_picker_rect" class="rect character_picker_arrow_rect">
+                <svg id="_" class="character_picker_arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" onclick="clickLeftArrow()">
+                    <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
+                </svg>
+            </div>
+            <div id="right_arrow_character_picker_rect" class="rect character_picker_arrow_rect">
+                <svg id="right_arrow_character_picker" class="character_picker_arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" onclick="clickRightArrow()">
+                    <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
+                </svg>
+            </div>
+        </div>
+
+        <input type="text" id="create_screen_name_input" class="text_area" placeholder="Ton nom ...">
+
+        <div id="validate_create_button" class="button" onclick="handleValidateCreateButtonClicked()"><h1>Créer</h1></div>
+
+        <img id="background_image" src="../resources/imposter.png" alt="background">
+
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            const home_screen = document.getElementById("home_screen");
+
+            const create_screen = document.getElementById("create_screen");
+            const create_screen_name_input = document.getElementById("create_screen_name_input");
+
+            const join_screen = document.getElementById("join_screen");
+            const join_screen_name_input = document.getElementById("join_screen_name_input");
+            const join_screen_room_input = document.getElementById("join_screen_room_input");
+
+            const character_img = document.getElementsByClassName("character_image");
+            let chosenCharacter = 0;
+            let characterImages =
+            [
+                "./resources/character1.png",
+                "./resources/character2.png",
+                "./resources/character3.png",
+                "./resources/character4.png",
+                "./resources/character5.png",
+                "./resources/character6.png",
+                "./resources/character7.png",
+                "./resources/character8.png",
+                "./resources/character9.png",
+                "./resources/character10.png",
+                "./resources/character11.png",
+                "./resources/character12.png",
+            ];
+
+            function handleCreateButtonClicked()
+            {
+                create_screen.classList.remove("hidden");
+                home_screen.classList.add("hidden");
+                console.log("created");
+            }
+
+            function handleJoinButtonClicked()
+            {
+                join_screen.classList.remove("hidden");
+                home_screen.classList.add("hidden");
+            }
+
+            function handleValidateCreateButtonClicked()
+            {
+                let player_name = create_screen_name_input.value;
+
+                localStorage.setItem("player_name", player_name);
+                localStorage.setItem("player_icon", characterImages[chosenCharacter]);
+
+                console.log("Creating a room");
+                socket.emit("createNewRoom", player_name);
+            }
+
+            function handleValidateJoinButtonClicked()
+            {
+                let player_name = join_screen_name_input.value;
+                let room_id = join_screen_room_input.value;
+
+                localStorage.setItem("roomId", room_id);
+                localStorage.setItem("player_name", player_name);
+                localStorage.setItem("player_icon", characterImages[chosenCharacter]);
+
+                location.href=`./game`;
+            }
+
+            function goBackArrowClicked()
+            {
+                location.href="./";
+            }
+
+            function clickLeftArrow()
+            {
+                if(chosenCharacter > 0) chosenCharacter--;
+                else chosenCharacter = characterImages.length - 1;
+                for(let i = 0; i < character_img.length; i++) {
+                    console.log(character_img[i])
+                    character_img[i].src = characterImages[chosenCharacter];
+                }
+            }
+
+            function clickRightArrow()
+            {
+                if(chosenCharacter < characterImages.length - 1) chosenCharacter++;
+                else chosenCharacter = 0;
+                for(let i = 0; i < character_img.length; i++) {
+                    console.log(character_img[i])
+                    character_img[i].src = characterImages[chosenCharacter];
+                }
+            }
+
+        </script>
+        <script>
+            var socket = io();
+
+            socket.on("sendNewRoomCreated", (roomId) =>
+            {
+                localStorage.setItem("roomId", roomId);
+                location.href=`./game`;
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,114 @@
+:root
+{
+    --main_color: #F5CDA7;
+    --main_color_lighter: #f7d8ba;
+    --main_color_darker: #f2be8c;
+    --hightlight_color: #E54B4B;
+    --black_color: #1A1423;
+    --light_color: #92DCE5;
+    --dark_color: #52DEE5
+}
+
+body
+{
+    background-color: var(--main_color);
+    color: var(--hightlight_color);
+
+    width: 100vh;
+    height: 100vh;
+    overflow: hidden;
+    user-select: none;
+}
+
+header
+{
+    height: 13vh;
+    color: var(--hightlight_color);
+}
+
+header h2
+{
+    font-size: 32px;
+    padding: 0px;
+    margin: 0px;
+}
+
+header h1
+{
+    font-size: 35px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.text_area
+{
+    background-color: var(--main_color);
+    border: solid 4px var(--hightlight_color);
+    height: 48px;
+    border-radius: 15px;
+}
+
+input[type="text"]::placeholder
+{
+    color: var(--hightlight_color);
+    font-style: italic;
+    font-weight: bold;
+}
+
+.rect
+{
+    background-color: var(--main_color);
+    border: solid 4px var(--hightlight_color);
+    height: 58px;
+    border-radius: 20px;
+}
+
+.button
+{
+    background-color: var(--main_color);
+    border: solid 4px var(--hightlight_color);
+    height: 58px;
+    border-radius: 15px;
+    transition: 0.2s ease;
+}
+
+.button:hover
+{
+    background-color: var(--main_color_lighter);
+}
+
+.button:active
+{
+    background-color: var(--main_color_darker);
+}
+
+.button h1
+{
+    color: var(--hightlight_color);
+    font-size: 25px;
+    font-weight: bold;
+
+    height: 50px;
+    line-height: 50px;
+    vertical-align: middle;
+
+    width: 100%;
+    text-align: center;
+}
+
+.panel
+{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--main_color);
+    padding: 20px;
+    text-align: center;
+    z-index: 9999;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

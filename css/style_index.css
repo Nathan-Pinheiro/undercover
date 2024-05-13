@@ -1,0 +1,77 @@
+:root
+{
+    --main_color: #F5CDA7;
+    --hightlight_color: #E54B4B;
+}
+
+body
+{
+    background-color: var(--main_color);
+    color: var(--main_color);
+    overflow: hidden;
+}
+
+.button
+{
+    background-color: var(--main_color);
+    border: solid 4px var(--hightlight_color);
+
+    height: 58px;
+    border-radius: 50px;
+}
+
+.button h1
+{
+    color: var(--hightlight_color);
+    font-size: 25px;
+    font-weight: bold;
+
+    height: 50px;
+    line-height: 50px;
+    vertical-align: middle;
+
+    width: 100%;
+    text-align: center;
+}
+
+#title
+{
+    color: var(--hightlight_color);
+
+    font-size: 40px;
+    font-weight: bold;
+
+    line-height: 50px;
+    height: 50px;
+    vertical-align: middle;
+
+    position: absolute;
+    top: 4vh;
+    width: 100%;
+}
+
+#create_button
+{
+    position: absolute;
+    left: 10vw;
+    bottom: calc(9vh + 58px);
+    width: 80vw;
+}
+
+#join_button
+{
+    position: absolute;
+    left: 10vw;
+    bottom: 6vh;
+    width: 80vw;
+}
+
+#background_image
+{
+    z-index: -20;
+    position: absolute;
+    bottom: -20vh;
+    height: 110vh;
+    left: calc(50vw);
+    transform: translate(-50%, 0);
+}

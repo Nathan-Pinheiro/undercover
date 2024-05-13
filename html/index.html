@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="css/style_index.css">
+        <title>Undercover</title>
+    </head>
+
+    <body>
+
+        <h2 id="title" class="text-center">Undercover</h2>
+
+        <div id="create_button" class="button" onclick="handleCreateButtonClicked()"><h1>Créer</h1></div>
+        <div id="join_button" class="button" onclick="handleJoinButtonClicked()"><h1>Rejoindre</h1></div>
+
+        <img id="background_image" src="../resources/imposter.png" alt="background">
+
+        <script>
+
+            function handleCreateButtonClicked()
+            {
+                location.href=`./create_game`;
+            }
+
+            function handleJoinButtonClicked()
+            {
+                location.href=`./join_game`;
+            }
+
+        </script>
+    </body>
+
+</html>
