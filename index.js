@@ -8,7 +8,7 @@ const { GameStates } = require("./backend/utils/gameState.js");
 const { Rewards } = require("./backend/utils/rewards.js");
 const { hostname } = require("os");
 
-const PORT = 80
+const PORT = process.env.PORT || 80
 
 const lang = process.env.LANG.slice(0, 2);
 
@@ -25,6 +25,11 @@ app.get("/game", (_, res) => {
 app.use("/css", express.static(__dirname + "/css/"));
 app.use("/resources", express.static(__dirname + "/resources/"));
 app.use("/html", express.static(__dirname + "/html/"));
+
+http.listen(PORT, () => {
+    console.log(lang);
+    console.log(`Le serveur est lancé sur le port ${PORT} !`);
+})
 
 let rooms = {};
 
@@ -258,11 +263,6 @@ function isVotingTimeFinished(players) {
     });
     return is_voting_time_finished;
 }
-
-http.listen(PORT, () => {
-    console.log(lang);
-    console.log(`Le serveur est lancé sur le port ${PORT} !`);
-})
 
 function previousTurn(turn, playersAmount) {
     if (turn > 0) return turn - 1;
