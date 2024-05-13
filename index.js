@@ -8,7 +8,7 @@ const { GameStates } = require("./backend/utils/gameState.js");
 const { Rewards } = require("./backend/utils/rewards.js");
 const { hostname } = require("os");
 
-const PORT = 443
+const PORT = 80
 
 const lang = process.env.LANG.slice(0, 2);
 
