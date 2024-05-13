@@ -3,22 +3,24 @@ const fs = require("fs");
 
 function initializeRoutes(app)
 {
-    app.get("/", (_, res) => {
+    const router = express.Router();
+
+    router.get("/", (_, res) => {
         const indexHTML = fs.readFileSync(__dirname + "/../../html/index.html", "utf-8");
         res.send(indexHTML);
     });
 
-    app.get("/create_game", (_, res) => {
+    router.post("/create_game", (_, res) => {
         const indexHTML = fs.readFileSync(__dirname + "/../../html/create_game.html", "utf-8");
         res.send(indexHTML);
     });
 
-    app.get("/join_game", (_, res) => {
+    router.post("/join_game", (_, res) => {
         const indexHTML = fs.readFileSync(__dirname + "/../../html/join_game.html", "utf-8");
         res.send(indexHTML);
     });
 
-    app.get("/game", (_, res) => {
+    router.post("/game", (_, res) => {
         const indexHTML = fs.readFileSync(__dirname + "/../../html/game.html", "utf-8");
         res.send(indexHTML);
     });
@@ -26,6 +28,8 @@ function initializeRoutes(app)
     app.use("/css", express.static(__dirname + "/../../css/"));
     app.use("/resources", express.static(__dirname + "/../../resources/"));
     app.use("/html", express.static(__dirname + "/../../html/"));
+
+    app.use(router);
 }
 
 module.exports = {

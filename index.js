@@ -2,33 +2,40 @@ const express = require("express")
 const app = express();
 const http = require("http").Server(app);
 const io = require("socket.io")(http);
+const router = express.Router();
+const port = process.env.PORT || 3000;
 const fs = require("fs");
 const { generateWords } = require("./backend/utils/wordManager.js");
 const { GameStates } = require("./backend/utils/gameState.js");
 const { Rewards } = require("./backend/utils/rewards.js");
 const { hostname } = require("os");
 
-const PORT = process.env.PORT || 80
+app.use(express.json());
+app.use(express.urlencoded());
 
-const lang = process.env.LANG.slice(0, 2);
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send("Internal Server Error");
+  });
 
-app.get("/", (_, res) => {
+router.get("/", (_, res) => {
     const indexHTML = fs.readFileSync(__dirname + "/html/index.html", "utf-8");
     res.send(indexHTML);
 })
 
-app.get("/game", (_, res) => {
+router.post("/game", (_, res) => {
     const indexHTML = fs.readFileSync(__dirname + "/html/game.html", "utf-8");
     res.send(indexHTML);
 })
+
+app.use(router);
 
 app.use("/css", express.static(__dirname + "/css/"));
 app.use("/resources", express.static(__dirname + "/resources/"));
 app.use("/html", express.static(__dirname + "/html/"));
 
-http.listen(PORT, () => {
-    console.log(lang);
-    console.log(`Le serveur est lancé sur le port ${PORT} !`);
+http.listen(port, () => {
+    console.log(`Le serveur est lancé sur le port ${port} !`);
 })
 
 let rooms = {};
