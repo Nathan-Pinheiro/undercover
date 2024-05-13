@@ -10,17 +10,17 @@ function initializeRoutes(app)
         res.send(indexHTML);
     });
 
-    router.post("/create_game", (_, res) => {
+    router.get("/create_game", (_, res) => {
         const indexHTML = fs.readFileSync(__dirname + "/../../html/create_game.html", "utf-8");
         res.send(indexHTML);
     });
 
-    router.post("/join_game", (_, res) => {
+    router.get("/join_game", (_, res) => {
         const indexHTML = fs.readFileSync(__dirname + "/../../html/join_game.html", "utf-8");
         res.send(indexHTML);
     });
 
-    router.post("/game", (_, res) => {
+    router.get("/game", (_, res) => {
         const indexHTML = fs.readFileSync(__dirname + "/../../html/game.html", "utf-8");
         res.send(indexHTML);
     });
