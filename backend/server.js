@@ -1,10 +1,13 @@
 const express = require("express");
 const app = express();
 const http = require("http").Server(app);
-const server = app.listen(8810);
-const io = require('socket.io').listen(server);
 
 const port = process.env.PORT || 8080;
+
+const server = app.listen(port)
+const io = require('socket.io').listen(server);
+
+
 
 const fs = require("fs");
 
