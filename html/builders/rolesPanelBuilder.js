@@ -20,7 +20,7 @@ function click_minus_ignorant(game_settings) {
     if(game_settings.ignorant_amount > 0 && room.players.length >= 3) game_settings.ignorant_amount--;
 }
 
-function build_game_settings_panel(player_name, game_settings)
+function build_roles_panel(player_name, game_settings)
 {
     var new_game_settings = game_settings;
 
@@ -81,4 +81,4 @@ function build_game_settings_panel(player_name, game_settings)
     return game_settings_div;
 }
 
-window.build_game_settings_panel = build_game_settings_panel;
+window.build_roles_panel = build_roles_panel;

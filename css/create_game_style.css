@@ -4,59 +4,6 @@
     --hightlight_color: #E54B4B;
 }
 
-body
-{
-    background-color: var(--main_color);
-    color: var(--main_color);
-    overflow: hidden;
-}
-
-.button
-{
-    background-color: var(--main_color);
-    border: solid 4px var(--hightlight_color);
-
-    height: 58px;
-    border-radius: 50px;
-}
-
-.button h1
-{
-    color: var(--hightlight_color);
-    font-size: 25px;
-    font-weight: bold;
-
-    height: 50px;
-    line-height: 50px;  
-    vertical-align: middle;
-
-    width: 100%;
-    text-align: center;
-}
-
-.text_area
-{
-    background-color: var(--main_color);
-    border: solid 4px var(--hightlight_color);
-    height: 48px;
-    border-radius: 15px;
-}
-
-input[type="text"]::placeholder
-{
-    color: var(--hightlight_color);
-    font-style: italic;
-    font-weight: bold;
-}
-
-.rect
-{
-    background-color: var(--main_color);
-    border: solid 4px var(--hightlight_color);
-    height: 58px;
-    border-radius: 20px;
-}
-
 #character_picker
 {
     position: absolute;
@@ -65,7 +12,7 @@ input[type="text"]::placeholder
     left: 50%;
 
     transform: translate(-50%, 0%);
-    width: calc(100px + 30vw);
+    width: 220px;
 
     height: calc(150px + 10vh);
 }
@@ -120,32 +67,6 @@ input[type="text"]::placeholder
     left: 50%;
     bottom: 0px;
     transform: translate(-50%, 0%);
-}
-
-#back_arrow {
-    width: 45px;
-    height: 45px;
-    margin-right: 10px;
-    color: #E54B4B;
-    fill: #E54B4B;
-}
-
-#title {
-    color: var(--hightlight_color);
-    font-size: 32px;
-    font-weight: bold;
-    vertical-align: middle;
-    text-align: center;
-    height: 50px;
-    line-height: 50px;
-}
-
-span {
-    padding-top: 3vh;
-    justify-content: center;
-    text-align: center;
-    display: flex;
-    align-items: center;
 }
 
 #create_screen_name_input

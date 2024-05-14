@@ -70,6 +70,20 @@ input[type="text"]::placeholder
     height: 58px;
     border-radius: 15px;
     transition: 0.2s ease;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bottom_button
+{
+    width: 80vw;
+    height: 58px;
+    position: absolute;
+    bottom: 5vh;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
 
 .button:hover
@@ -96,6 +110,21 @@ input[type="text"]::placeholder
     text-align: center;
 }
 
+.button h2
+{
+    color: var(--hightlight_color);
+    font-size: 17px;
+
+    height: 50px;
+    line-height: 50px;
+    vertical-align: middle;
+    margin: 0px;
+    padding: 0px;
+
+    width: 100%;
+    text-align: center;
+}
+
 .panel
 {
     position: absolute;
@@ -104,11 +133,38 @@ input[type="text"]::placeholder
     height: 100vh;
     width: 100vw;
     background-color: var(--main_color);
-    padding: 20px;
     text-align: center;
     z-index: 9999;
     border-radius: 30px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.go_back_title
+{
+    width: 100vw;
+    padding-top: 3vh;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+#back_arrow {
+    width: 45px;
+    height: 45px;
+    margin-right: 10px;
+    color: #E54B4B;
+    fill: #E54B4B;
+}
+
+#title {
+    color: var(--hightlight_color);
+    font-size: 32px;
+    font-weight: bold;
+    vertical-align: middle;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
 }

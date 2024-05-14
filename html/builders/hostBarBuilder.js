@@ -4,14 +4,14 @@ function click_start_button(socket)
     socket.emit("startGame");
 }
 
-function click_game_settings_button()
+function click_game_settings_button(game_settings)
 {
     console.log("clicked game settings");
-    document.body.append(build_game_settings_panel())
+    document.body.append(build_game_settings_panel(game_settings))
 }
 
-function build_host_bar(socket) {
-
+function build_host_bar(socket, game_settings)
+{
     var host_bar_div = document.createElement("div");
     host_bar_div.id = "host_bar";
 
@@ -24,7 +24,7 @@ function build_host_bar(socket) {
     var config_button_div = document.createElement("div");
     config_button_div.id = "config_button";
     config_button_div.className = "button m-0 p-0";
-    config_button_div.onclick = function() { click_game_settings_button(); };
+    config_button_div.onclick = function() { click_game_settings_button(game_settings); };
 
     var img_element = document.createElement("img");
     img_element.src = "../resources/option.png";
