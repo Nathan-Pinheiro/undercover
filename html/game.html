@@ -21,95 +21,87 @@
     <div id="game_content">
         <div class="player_row" id="player_row_1">
             <div id="player1" class="player">
-                <div class="colored-background rounded-circle">
-                    <img src="./resources/unknow.png" alt="">
-                    <h3 class="player_name"></h3>
-                    <div class="talks talks-left p-1">
-                        <p></p>
-                        <h5>...</h5>
-                    </div>
+                <img src="./resources/unknow.png" alt="">
+                <h3 class="player_name"></h3>
+                <div class="talks talks-left p-1">
+                    <p></p>
+                    <h5>...</h5>
                 </div>
+                <img src="./resources/hand_cursor.png" alt="" class="hand_cursor">
             </div>
         </div>
         <div class="player_row" id="player_row_2">
             <div id="player2" class="player">
-                <div class="colored-background rounded-circle">
-                    <img src="./resources/unknow.png" alt="">
-                    <h3 class="player_name"></h3>
-                    <div class="talks talks-right p-1">
-                        <p></p>
-                        <h5>...</h5>
-                    </div>
+                <img src="./resources/unknow.png" alt="">
+                <h3 class="player_name"></h3>
+                <div class="talks talks-right p-1">
+                    <p></p>
+                    <h5>...</h5>
                 </div>
+                <img src="./resources/hand_cursor.png" alt="" class="hand_cursor">
             </div>
             <div id="sep1" class="separator"></div>
             <div id="player3" class="player">
-                <div class="colored-background rounded-circle">
-                    <img src="./resources/unknow.png" alt="">
-                    <h3 class="player_name"></h3>
-                    <div class="talks talks-left p-1">
-                        <p></p>
-                        <h5>...</h5>
-                    </div>
+                <img src="./resources/unknow.png" alt="">
+                <h3 class="player_name"></h3>
+                <div class="talks talks-left p-1">
+                    <p></p>
+                    <h5>...</h5>
                 </div>
+                <img src="./resources/hand_cursor.png" alt="" class="hand_cursor">
             </div>
         </div>
         <div class="player_row" id="player_row_3">
             <div id="player4" class="player">
-                <div class="colored-background rounded-circle">
-                    <img src="./resources/unknow.png" alt="">
-                    <h3 class="player_name"></h3>
-                    <div class="talks talks-left p-1">
-                        <p></p>
-                        <h5>...</h5>
-                    </div>
+                <img src="./resources/unknow.png" alt="">
+                <h3 class="player_name"></h3>
+                <div class="talks talks-left p-1">
+                    <p></p>
+                    <h5>...</h5>
                 </div>
+                <img src="./resources/hand_cursor.png" alt="" class="hand_cursor">
             </div>
             <div id="sep2" class="separator"></div>
             <div id="player5" class="player">
-                <div class="colored-background rounded-circle">
-                    <img src="./resources/unknow.png" alt="">
-                    <h3 class="player_name"></h3>
-                    <div class="talks talks-left p-1">
-                        <p></p>
-                        <h5>...</h5>
-                    </div>
+                <img src="./resources/unknow.png" alt="">
+                <h3 class="player_name"></h3>
+                <div class="talks talks-left p-1">
+                    <p></p>
+                    <h5>...</h5>
                 </div>
+                <img src="./resources/hand_cursor.png" alt="" class="hand_cursor">
             </div>
         </div>
         <div class="player_row" id="player_row_4">
             <div id="player6" class="player">
-                <div class="colored-background rounded-circle">
-                    <img src="./resources/unknow.png" alt="">
-                    <h3 class="player_name"></h3>
-                    <div class="talks talks-left p-1">
-                        <p></p>
-                        <h5>...</h5>
-                    </div>
+                <img src="./resources/unknow.png" alt="">
+                <h3 class="player_name"></h3>
+                <div class="talks talks-left p-1">
+                    <p></p>
+                    <h5>...</h5>
                 </div>
+                <img src="./resources/hand_cursor.png" alt="" class="hand_cursor">
             </div>
             <div id="sep3" class="separator"></div>
             <div id="player7" class="player">
-                <div class="colored-background rounded-circle">
-                    <img src="./resources/unknow.png" alt="">
-                    <h3 class="player_name"></h3>
-                    <div class="talks talks-left p-1">
-                        <p></p>
-                        <h5>...</h5>
-                    </div>
+                <img src="./resources/unknow.png" alt="">
+                <h3 class="player_name"></h3>
+                <div class="talks talks-left p-1">
+                    <p></p>
+                    <h5>...</h5>
                 </div>
+                <img src="./resources/hand_cursor.png" alt="" class="hand_cursor">
             </div>
         </div>
         <div class="player_row" id="player_row_5">
             <div id="player8" class="player">
-                <div class="colored-background rounded-circle">
-                    <img src="./resources/unknow.png" alt="">
-                    <h3 class="player_name"></h3>
-                    <div class="talks talks-left p-1">
-                        <p></p>
-                        <h5>...</h5>
-                    </div>
+                <img src="./resources/unknow.png" alt="">
+                <h3 class="player_name"></h3>
+                <div class="talks talks-left p-1">
+                    <p></p>
+                    <h5>...</h5>
                 </div>
+                <img src="./resources/hand_cursor.png" alt="" class="hand_cursor">
             </div>
         </div>
     </div>
@@ -267,7 +259,6 @@
                 const player_div = getPlayerDiv(i);
                 const player_name = player_div.querySelector("h3");
                 const player_icon = player_div.querySelector("img")
-                const colored_backround = player_div.querySelector(".colored-background");
                 const talks = player_div.querySelector(".talks");
                 const message = talks.querySelector("p");
 
@@ -275,14 +266,14 @@
                 player_name.textContent = player.player_name;
                 if(i == player_id) player_name.classList.add("personnal_player_name")
 
-                colored_backround.onmouseenter = undefined;
-                colored_backround.onmouseleave = undefined;
-                colored_backround.onclick = undefined;
+                player_div.onmouseenter = undefined;
+                player_div.onmouseleave = undefined;
+                player_div.onclick = undefined;
 
                 talks.classList.remove("justTalked");
                 talks.classList.remove("isTalking");
-                colored_backround.classList.remove("selected");
-                colored_backround.classList.remove("hovered");
+                player_div.classList.remove("selected");
+                player_div.classList.remove("hovered");
 
                 switch (game_state)
                 {
@@ -312,9 +303,9 @@
 
                         if(players[player_id].vote == undefined && i !== player_id)
                         {
-                            colored_backround.onmouseenter = function() { onMouseOverPlayer(colored_backround); };
-                            colored_backround.onmouseleave = function() { onMouseExitedPlayer(colored_backround); };
-                            colored_backround.onclick = function() { onClickPlayer(i, players.length); };
+                            player_div.onmouseenter = function() { onMouseOverPlayer(player_div); };
+                            player_div.onmouseleave = function() { onMouseExitedPlayer(player_div); };
+                            player_div.onclick = function() { onClickPlayer(i, players.length); };
                         }
                         break;
 

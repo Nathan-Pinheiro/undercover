@@ -66,6 +66,31 @@
     height: 85px;
     width: 100px;
     padding: 0px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hand_cursor
+{
+    opacity: 0;
+    position: absolute;
+    top: 20%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    transform: rotate(-40deg);
+}
+
+.player.hovered .hand_cursor
+{
+    opacity: 0.5;
+}
+
+.player.selected .hand_cursor
+{
+    opacity: 1;
 }
 
 #player_row_1
@@ -250,11 +275,6 @@ input[type="text"]::placeholder
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 10px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
 .colored-background.hovered

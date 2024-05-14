@@ -7,11 +7,10 @@ function confirmVoteButtonClicked()
         socket.emit("confirmVote", player_id, getSelectedPlayerId());
 
         const player_div = getPlayerDiv(player_id);
-        const colored_backround = player_div.querySelector(".colored-background");
 
-        colored_backround.onmouseenter = undefined;
-        colored_backround.onmouseleave = undefined;
-        colored_backround.onclick = undefined;
+        player_div.onmouseenter = undefined;
+        player_div.onmouseleave = undefined;
+        player_div.onclick = undefined;
     }
     else console.log("can't vote for nobody");
 }

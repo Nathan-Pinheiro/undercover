@@ -1,13 +1,13 @@
 let selected_player_id = undefined;
 
-function onMouseOverPlayer(colored_backround)
+function onMouseOverPlayer(player_div)
 {
-    colored_backround.classList.add("hovered");
+    player_div.classList.add("hovered");
 }
 
-function onMouseExitedPlayer(colored_backround)
+function onMouseExitedPlayer(player_div)
 {
-    colored_backround.classList.remove("hovered");
+    player_div.classList.remove("hovered");
 }
 
 function onClickPlayer(player_id, players_length)
@@ -18,13 +18,13 @@ function onClickPlayer(player_id, players_length)
     for (let i = 0; i < players_length; i++)
     {
         const player_div = getPlayerDiv(i);
-        const colored_background = player_div.querySelector(".colored-background");
-        colored_background.classList.remove("selected");
-        if (i == selected_player_id) colored_background.classList.add("selected");
+        player_div.classList.remove("selected");
+        if (i == selected_player_id) player_div.classList.add("selected");
     }
 }
 
-function getSelectedPlayerId() {
+function getSelectedPlayerId()
+{
     return selected_player_id;
 }
 
