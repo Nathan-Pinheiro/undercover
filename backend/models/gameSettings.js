@@ -7,6 +7,11 @@ class GameSettings
         this.undercover_amount = undercover_amount;
         this.ignorant_amount = ignorant_amount;
     }
+
+    copy()
+    {
+        return new GameSettings(this.max_round, this.max_words, this.undercover_amount, this.ignorant_amount);
+    }
 }
 
 module.exports = {

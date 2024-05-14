@@ -2,7 +2,7 @@ const { GameStates } = require("../../utils/gameState");
 
 function initializeOnUpdateGameSettings(io, socket, rooms, room_id)
 {
-    socket.on("sendWord", (player_name, game_settings) =>
+    socket.on("updateGameSettings", (player_name, game_settings) =>
     {
         const room = rooms[room_id];
 
@@ -19,6 +19,8 @@ function initializeOnUpdateGameSettings(io, socket, rooms, room_id)
         }
 
         room.game_settings = game_settings;
+        io.to(room_id).emit("sendMessage", "Room settings updated");
+        io.to(room_id).emit("sendRoomData", room);
     });
 }
 

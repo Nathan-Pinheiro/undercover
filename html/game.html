@@ -157,6 +157,7 @@
     <script src="/html/builders/rewardPanelBuilder.js" type="module"></script>
     <script src="/html/builders/wordSendBarBuilder.js" type="module"></script>
     <script src="/html/builders/finalPodiumPanelBuilder.js" type="module"></script>
+    <script src="/html/builders/rolesPanelBuilder.js" type="module"></script>
     <script src="/html/builders/gameSettingsPanelBuilder.js" type="module"></script>
     <script src="/html/listeners.js" type="module"></script>
     <script>
@@ -253,11 +254,6 @@
             const base_top_vh_values = [3, 7, 13, 19, 21];
             const base_top_px_values = [85, 85, 105, 125, 145];
 
-            console.log(pading_top)
-            console.log(coef)
-            console.log(base_top_px_values)
-            console.log(base_top_vh_values)
-
             for (let i = 0; i < row_amount; i++)
             {
                 const player_row = document.getElementById("player_row_" + (i+1));
@@ -340,6 +336,12 @@
                 if (i > players.length) document.getElementById(playerId).classList.add("hidden");
                 else document.getElementById(playerId).classList.remove("hidden");
             }
+
+            if (players.length < 2) document.getElementById("player2").style.opacity = 0.8
+            else document.getElementById("player2").style.opacity = 1
+
+            if (players.length < 3) document.getElementById("player3").style.opacity = 0.8
+            else document.getElementById("player3").style.opacity = 1
 
             if (players.length < 5) document.getElementById("sep2").classList.add("hidden");
             else document.getElementById("sep2").classList.remove("hidden");

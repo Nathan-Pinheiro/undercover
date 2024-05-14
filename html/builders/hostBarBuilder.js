@@ -1,12 +1,10 @@
 function click_start_button(socket)
 {
-    console.log("clicked start game");
     socket.emit("startGame");
 }
 
 function click_game_settings_button(game_settings)
 {
-    console.log("clicked game settings");
     document.body.append(build_game_settings_panel(game_settings))
 }
 

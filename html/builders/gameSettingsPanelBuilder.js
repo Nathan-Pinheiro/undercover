@@ -1,13 +1,12 @@
-function click_validate(socket, player_name, game_settings)
+function click_validate(socket, new_game_settings)
 {
-    console.log("Upgated game settings")
-    socket.emit("updateGameSettings", player_name, game_settings);
+    socket.emit("updateGameSettings", localStorage.getItem("player_name"), new_game_settings);
     document.getElementById("game_settings_panel").remove();
 }
 
-function click_change_roles()
+function click_change_roles(new_game_settings)
 {
-    console.log("change roles");
+    document.body.append(build_roles_panel(new_game_settings))
 }
 
 function go_back_arrow_clicked()
@@ -17,7 +16,7 @@ function go_back_arrow_clicked()
 
 function build_game_settings_panel(game_settings)
 {
-    var new_game_settings = game_settings;
+    const new_game_settings = { ...game_settings };
 
     const game_settings_div = document.createElement("div");
     game_settings_div.id = "game_settings_panel";
@@ -77,10 +76,22 @@ function build_game_settings_panel(game_settings)
 
     game_settings_div.appendChild(change_roles_button);
 
+    const undercover_label = document.createElement("h2");
+    undercover_label.id = "undercover_label";
+    undercover_label.textContent = "Undercover : " + game_settings.undercover_amount;
+
+    game_settings_div.appendChild(undercover_label);
+
+    const ignorant_label = document.createElement("h2");
+    ignorant_label.id = "ignorant_label";
+    ignorant_label.textContent = "Ignorant : " + game_settings.ignorant_amount;
+
+    game_settings_div.appendChild(ignorant_label);
+
     const validate_button = document.createElement("div");
     validate_button.id = "validate_game_settings_button";
     validate_button.className = "button bottom_button";
-    validate_button.onclick = function () { click_validate(socket, player_name, new_game_settings); };
+    validate_button.onclick = function () { click_validate(socket, new_game_settings); };
     validate_button.innerHTML = "<h2>Valider</h2>";
 
     game_settings_div.appendChild(validate_button);

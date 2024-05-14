@@ -314,12 +314,6 @@ input[type="text"]::placeholder
     height: 50px;
 }
 
-.hidden
-{
-    display: none;
-    opacity: 0%;
-}
-
 #go_to_vote
 {
     position: absolute;
