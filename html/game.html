@@ -15,93 +15,117 @@
 
 <body class="container-fluid">
     <header class="row align-items-center justify-content-center m-0">
-        <h2 id="title" class="text-center">Votre Mot :</h2>
-        <h1 id="subtitle" class="text-center">Château</h1>
+        <h1 id="title" class="text-center"></h1>
+        <h1 id="subtitle" class="text-center"></h1>
     </header>
     <div id="game_content">
         <div class="player_row" id="player_row_1">
             <div id="player1" class="player">
-                <img src="./resources/unknow.png" alt="">
+                <img class="player_icon" src="./resources/unknow.png" alt="">
                 <h3 class="player_name"></h3>
                 <div class="talks talks-left p-1">
                     <p></p>
                     <h5>...</h5>
                 </div>
                 <img src="./resources/hand_cursor.png" alt="" class="hand_cursor">
+                <div class="player_score hidden">
+                    <span class="player_score_value"></span><span class="reward_score_value"></span>
+                </div>
             </div>
         </div>
         <div class="player_row" id="player_row_2">
             <div id="player2" class="player">
-                <img src="./resources/unknow.png" alt="">
+                <img class="player_icon" src="./resources/unknow.png" alt="">
                 <h3 class="player_name"></h3>
                 <div class="talks talks-right p-1">
                     <p></p>
                     <h5>...</h5>
                 </div>
                 <img src="./resources/hand_cursor.png" alt="" class="hand_cursor">
+                <div class="player_score hidden">
+                    <span class="player_score_value"></span><span class="reward_score_value"></span>
+                </div>
             </div>
             <div id="sep1" class="separator"></div>
             <div id="player3" class="player">
-                <img src="./resources/unknow.png" alt="">
+                <img class="player_icon" src="./resources/unknow.png" alt="">
                 <h3 class="player_name"></h3>
                 <div class="talks talks-left p-1">
                     <p></p>
                     <h5>...</h5>
                 </div>
                 <img src="./resources/hand_cursor.png" alt="" class="hand_cursor">
+                <div class="player_score hidden">
+                    <span class="player_score_value"></span><span class="reward_score_value"></span>
+                </div>
             </div>
         </div>
         <div class="player_row" id="player_row_3">
             <div id="player4" class="player">
-                <img src="./resources/unknow.png" alt="">
+                <img class="player_icon" src="./resources/unknow.png" alt="">
                 <h3 class="player_name"></h3>
                 <div class="talks talks-left p-1">
                     <p></p>
                     <h5>...</h5>
                 </div>
                 <img src="./resources/hand_cursor.png" alt="" class="hand_cursor">
+                <div class="player_score hidden">
+                    <span class="player_score_value"></span><span class="reward_score_value"></span>
+                </div>
             </div>
             <div id="sep2" class="separator"></div>
             <div id="player5" class="player">
-                <img src="./resources/unknow.png" alt="">
+                <img class="player_icon" src="./resources/unknow.png" alt="">
                 <h3 class="player_name"></h3>
                 <div class="talks talks-left p-1">
                     <p></p>
                     <h5>...</h5>
                 </div>
                 <img src="./resources/hand_cursor.png" alt="" class="hand_cursor">
+                <div class="player_score hidden">
+                    <span class="player_score_value"></span><span class="reward_score_value"></span>
+                </div>
             </div>
         </div>
         <div class="player_row" id="player_row_4">
             <div id="player6" class="player">
-                <img src="./resources/unknow.png" alt="">
+                <img class="player_icon" src="./resources/unknow.png" alt="">
                 <h3 class="player_name"></h3>
                 <div class="talks talks-left p-1">
                     <p></p>
                     <h5>...</h5>
                 </div>
                 <img src="./resources/hand_cursor.png" alt="" class="hand_cursor">
+                <div class="player_score hidden">
+                    <span class="player_score_value"></span><span class="reward_score_value"></span>
+                </div>
             </div>
             <div id="sep3" class="separator"></div>
             <div id="player7" class="player">
-                <img src="./resources/unknow.png" alt="">
+                <img class="player_icon" src="./resources/unknow.png" alt="">
                 <h3 class="player_name"></h3>
                 <div class="talks talks-left p-1">
                     <p></p>
                     <h5>...</h5>
                 </div>
                 <img src="./resources/hand_cursor.png" alt="" class="hand_cursor">
+                <div class="player_score hidden">
+                    <span class="player_score_value"></span><span class="reward_score_value"></span>
+                </div>
             </div>
         </div>
         <div class="player_row" id="player_row_5">
             <div id="player8" class="player">
-                <img src="./resources/unknow.png" alt="">
+                <img class="player_icon" src="./resources/unknow.png" alt="">
                 <h3 class="player_name"></h3>
                 <div class="talks talks-left p-1">
                     <p></p>
                     <h5>...</h5>
                 </div>
                 <img src="./resources/hand_cursor.png" alt="" class="hand_cursor">
+                <div class="player_score hidden">
+                    <span class="player_score_value"></span><span class="reward_score_value"></span>
+                </div>
             </div>
         </div>
     </div>
@@ -146,11 +170,11 @@
     <script src="/html/builders/confirmButtonBuilder.js" type="module"></script>
     <script src="/html/builders/goToVoteButtonBuilder.js" type="module"></script>
     <script src="/html/builders/hostBarBuilder.js" type="module"></script>
-    <script src="/html/builders/rewardPanelBuilder.js" type="module"></script>
     <script src="/html/builders/wordSendBarBuilder.js" type="module"></script>
     <script src="/html/builders/finalPodiumPanelBuilder.js" type="module"></script>
     <script src="/html/builders/rolesPanelBuilder.js" type="module"></script>
     <script src="/html/builders/gameSettingsPanelBuilder.js" type="module"></script>
+    <script src="/html/builders/nextTurnButtonBuilder.js" type="module"></script>
     <script src="/html/listeners.js" type="module"></script>
     <script>
         const title = document.getElementById("title");
@@ -161,11 +185,10 @@
             if(document.getElementById("send_word_bar")) document.getElementById("send_word_bar").remove();
             if(document.getElementById("go_to_vote_button")) document.getElementById("go_to_vote_button").remove();
             if(document.getElementById("confirm_vote_button")) document.getElementById("confirm_vote_button").remove();
-            if(document.getElementById("reward_panel")) document.getElementById("reward_panel").remove();
             if(document.getElementById("winners_panel")) document.getElementById("winners_panel").remove();
             if(document.getElementById("game_settings_panel")) document.getElementById("game_settings_panel").remove();
 
-            updatePlayersUI(data.players, data.turn, data.game_state);
+            updatePlayersUI(data);
 
             if(document.getElementById("host_bar")) document.getElementById("host_bar").remove();
             if(is_host && data.game_state == 0)
@@ -184,28 +207,27 @@
                 case 1:
                 case 2:
 
-                    title.textContent = "Tour " + data.round + "/" + data.game_settings.max_round;
-                    if(data.players[player_id]) subtitle.textContent = data.players[player_id].word;
-                    else subtitle.textContent = "<mot>";
+                    subtitle.textContent = "Tour " + data.round + "/" + data.game_settings.max_round;
+                    if(data.players[player_id]) title.textContent = data.players[player_id].word;
+                    else title.textContent = "<mot>";
                     break;
 
                 case 3:
 
-                    title.textContent = "Tour " + data.round + "/" + data.game_settings.max_round;
-                    subtitle.textContent = "Votez !";
+                    title.textContent = "Votez !";
+                    subtitle.textContent = "Tour " + data.round + "/" + data.game_settings.max_round;
                     if(data.players[player_id].vote == undefined) document.body.appendChild(build_confirm_button(player_id));
                     break;
 
                 case 4:
 
-                    title.textContent = "";
-                    subtitle.textContent = "";
+                    default_word = data.default_word;
+                    undercover_word = data.undercover_word;
 
-                    if(data.rewards != undefined)
-                    {
-                        if(is_host) document.body.appendChild(build_host_reward_panel(socket, data.rewards, data.players));
-                        else document.body.appendChild(build_reward_panel(data.rewards, data.players));
-                    }
+                    title.textContent = "Fin du round";
+                    subtitle.innerHTML = "Mots : <h1 class='default_word'>" + default_word + "</h1> / <h1 class='undercover_word'>" + undercover_word + "</h1>";
+
+                    if(is_host) document.body.appendChild(build_next_turn_button(socket))
 
                     break;
 
@@ -228,10 +250,14 @@
             console.log("UI is up to date !");
         }
 
-        function updatePlayersUI(players, turn, game_state)
+        function updatePlayersUI(data)
         {
+            const players = data.players;
+            const turn = data.turn;
+            const game_state = data.game_state;
+
             var coef;
-            if(players.length <= 3) coef = 4;
+            if(data.players.length <= 3) coef = 4;
             else if(players.length <= 5) coef = 3;
             else if(players.length <= 7) coef = 1.7;
             else coef = 1.5;
@@ -258,7 +284,10 @@
                 const player = players[i];
                 const player_div = getPlayerDiv(i);
                 const player_name = player_div.querySelector("h3");
-                const player_icon = player_div.querySelector("img")
+                const player_icon = player_div.querySelector("img");
+                const player_score = player_div.getElementsByClassName("player_score")[0];
+                const player_score_value = player_score.getElementsByClassName("player_score_value")[0];
+                const reward_score_value = player_score.getElementsByClassName("reward_score_value")[0];
                 const talks = player_div.querySelector(".talks");
                 const message = talks.querySelector("p");
 
@@ -274,6 +303,8 @@
                 talks.classList.remove("isTalking");
                 player_div.classList.remove("selected");
                 player_div.classList.remove("hovered");
+
+                if(!player_score.classList.contains("hidden")) player_score.classList.add("hidden");
 
                 switch (game_state)
                 {
@@ -296,6 +327,7 @@
                         {
                             if(player.is_talking) document.body.appendChild(build_word_send_bar());
                             else if(is_host) document.body.appendChild(build_go_to_vote_button());
+                            if(player.is_undercover && data.game_settings.show_undercover_icon) add_undercover_icon(player_name);
                         }
                         break;
 
@@ -307,9 +339,27 @@
                             player_div.onmouseleave = function() { onMouseExitedPlayer(player_div); };
                             player_div.onclick = function() { onClickPlayer(i, players.length); };
                         }
+
+                        if(i == player_id && player.is_undercover && data.game_settings.show_undercover_icon) add_undercover_icon(player_name);
+
                         break;
 
                     case 4:
+
+                        player_score.classList.remove("hidden");
+
+                        if(data.rewards != undefined && data.rewards[i] != undefined)
+                        {
+                            player_score_value.textContent = player.score;
+                            reward_score_value.textContent = " + " + data.rewards[i];
+
+                            setTimeout(() => {
+                                animate_score_update(players[i].score, data.rewards[i], player_score_value, reward_score_value);
+                            }, 900);
+                        }
+
+                        if(player.is_undercover) add_undercover_icon(player_name);
+
                         break;
 
                     case 5:
@@ -347,6 +397,43 @@
             let player_id = 'player' + (turn + 1)
             let player_div = document.getElementById(player_id);
             return player_div;
+        }
+
+        function add_undercover_icon(player_name_div)
+        {
+            var player_name = player_name_div.textContent
+            player_name_div.innerHTML = `<img class="undercover_icon" src="../resources/undercover_icon.png" alt="undercover_icon"> ${player_name}`
+        }
+
+        function animate_score_update(player_score, reward, player_score_value, reward_score_value)
+        {
+            const start_time = performance.now();
+            const frame_duration = 1000 / 60;
+
+            function animate(currentTime)
+            {
+                const elapsed_time = currentTime - start_time;
+                const progress = Math.min(elapsed_time / 2000, 1);
+
+                const easing_progress = easeInOutQuad(progress);
+                const new_player_score = Math.round(player_score + easing_progress * reward);
+                const new_reward_score = " + " + Math.round(reward * (1 - easing_progress));
+
+                player_score_value.textContent = new_player_score;
+                reward_score_value.textContent = new_reward_score;
+
+                if (progress < 1)
+                {
+                    requestAnimationFrame(animate);
+                }
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        function easeInOutQuad(t)
+        {
+            return t < 0.5 ? 2 * t * t : -1 + ((4 - (2 * t)) * t);
         }
 
     </script>

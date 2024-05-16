@@ -13,11 +13,10 @@ class Player
         this.just_talked = false;
     }
 
-    reset()
+    reset_turn()
     {
         this.word = undefined;
         this.words = [];
-        this.score = 0;
         this.vote = undefined;
         this.is_talking = false;
         this.just_talked = false;

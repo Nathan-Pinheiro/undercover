@@ -26,20 +26,6 @@ header
     color: var(--hightlight_color);
 }
 
-header h2
-{
-    font-size: 32px;
-    padding: 0px;
-    margin: 0px;
-}
-
-header h1
-{
-    font-size: 35px;
-    padding: 0px;
-    margin: 0px;
-}
-
 .text_area
 {
     background-color: var(--main_color);
@@ -157,16 +143,6 @@ input[type="text"]::placeholder
     margin-right: 10px;
     color: #E54B4B;
     fill: #E54B4B;
-}
-
-#title {
-    color: var(--hightlight_color);
-    font-size: 32px;
-    font-weight: bold;
-    vertical-align: middle;
-    text-align: center;
-    height: 50px;
-    line-height: 50px;
 }
 
 .hidden

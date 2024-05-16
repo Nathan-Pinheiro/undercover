@@ -5,7 +5,7 @@ const wordManager = require("../utils/wordManager");
 
 class Room
 {
-    constructor(host_player, max_round = 1, max_words = 3)
+    constructor(host_player)
     {
         this.host = host_player;
         this.players = [];
@@ -13,6 +13,8 @@ class Room
         this.round = 0;
         this.game_state = GameStates.WAITING;
         this.turn = 0;
+        this.default_word = undefined;
+        this.undercover_word = undefined;
         this.rewards = {};
     }
 
@@ -95,9 +97,10 @@ class Room
             else player_rewards = Rewards.NO_REWARDS;
 
             rewards[i] = player_rewards;
-            player.score += player_rewards;
+            this.players[i].score = this.players[i].score + player_rewards;
 
             console.log(`${player.player_name} voted for ${player.vote} and earned ${player_rewards} points`);
+            console.log(`${player.player_name} has ${this.players[i].score} points`);
         };
 
         this.rewards = rewards;
@@ -110,7 +113,7 @@ class Room
 
     start_new_round()
     {
-        for (var i = 0; i < this.players.length; i++) this.players[i].reset();
+        for (var i = 0; i < this.players.length; i++) this.players[i].reset_turn();
 
         this.undercover_name = undefined;
         this.game_state = GameStates.PLAYING;
@@ -121,6 +124,9 @@ class Room
 
         const words = wordManager.generateWords();
         const undercover_index = Math.floor(Math.random() * this.players.length);
+
+        this.undercover_word = words.undercover_word;
+        this.default_word = words.innocent_words;
 
         for (let i = 0; i < this.players.length; i++)
         {
