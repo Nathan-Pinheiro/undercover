@@ -1,4 +1,5 @@
-function getNewRoomId(rooms) {
+function getNewRoomId(rooms)
+{
     let roomId;
     do {
         roomId = generateRoomId();

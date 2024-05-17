@@ -45,6 +45,72 @@
     top: calc(min(max(10vw, 18px), 34px) + 2vh);
 }
 
+#waiting_screen
+{
+    animation: fadein 0.5s ease-in-out;
+    z-index: 9999;
+    background-color: var(--black_color);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    opacity: 1;
+}
+
+#waiting_screen.slideout
+{
+    animation: slideout 0.8s ease-in-out;
+    transform: translateX(100%);
+}
+
+#waiting_screen.hidden
+{
+    opacity: 0;
+}
+
+@keyframes fadein
+{
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes slideout
+{
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(100%);
+      -webkit-transform: translateX(100%);
+      -moz-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+      -o-transform: translateX(100%);
+}
+}
+
+#waiting_screen img
+{
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+}
+
+#waiting_screen_title
+{
+    position: absolute;
+    left: 50%;
+    top: 60vh;
+    width: 100vw;
+    text-align: center;
+    transform: translate(-50%, 0%);
+    color: var(--main_color_lighter);
+    font-size: min(max(6vw, 11px), 22px);
+}
+
 .default_word
 {
     color: green;

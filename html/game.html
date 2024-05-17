@@ -18,6 +18,10 @@
         <h1 id="title" class="text-center"></h1>
         <h1 id="subtitle" class="text-center"></h1>
     </header>
+    <div id="waiting_screen" class="hidden">
+        <img src="../resources/undercover_icon.png" alt="undercover_icon">
+        <h1 id="waiting_screen_title">...</h1>
+    </div>
     <div id="game_content">
         <div class="player_row" id="player_row_1">
             <div id="player1" class="player">
@@ -163,8 +167,29 @@
                 if(data.players[i].player_name == player_name) player_id = i;
 
             is_host = data.host == player_name;
+
             updateUI(data);
         });
+
+        function show_waiting_screen(waiting_screen_title_text)
+        {
+            var waiting_screen = document.getElementById("waiting_screen");
+            waiting_screen.classList.remove("hidden");
+
+            var waiting_screen_title = document.getElementById("waiting_screen_title");
+            waiting_screen_title.textContent = waiting_screen_title_text;
+        }
+
+        function hide_waiting_screen()
+        {
+            var waiting_screen = document.getElementById("waiting_screen");
+            waiting_screen.classList.add("slideout");
+
+            setTimeout(() => {
+                waiting_screen.classList.remove("slideout");
+                waiting_screen.classList.add("hidden");
+            }, 3000);
+        }
 
     </script>
     <script src="/html/builders/confirmButtonBuilder.js" type="module"></script>
@@ -187,6 +212,7 @@
             if(document.getElementById("confirm_vote_button")) document.getElementById("confirm_vote_button").remove();
             if(document.getElementById("winners_panel")) document.getElementById("winners_panel").remove();
             if(document.getElementById("game_settings_panel")) document.getElementById("game_settings_panel").remove();
+            if(document.getElementById("next_turn_button")) document.getElementById("next_turn_button").remove();
 
             updatePlayersUI(data);
 
@@ -207,12 +233,41 @@
                 case 1:
                 case 2:
 
+                    let round_just_started = true;
+                    for (let i = 0; i < data.players.length; i++)
+                    {
+                        if(data.players[i].words.length != 0)
+                        {
+                            round_just_started = false;
+                            break;
+                        }
+                    }
+
+                    if(round_just_started)
+                    {
+                        if(data.round == 1) show_waiting_screen("La partie commence !");
+                        else show_waiting_screen("Nouveau tour !");
+
+                        setTimeout(() => {
+                            hide_waiting_screen();
+                        }, 2000);
+                    }
+
                     subtitle.textContent = "Tour " + data.round + "/" + data.game_settings.max_round;
                     if(data.players[player_id]) title.textContent = data.players[player_id].word;
                     else title.textContent = "<mot>";
                     break;
 
                 case 3:
+
+                    if(data.players[player_id].vote == undefined)
+                    {
+                        show_waiting_screen("Passons aux votes !");
+
+                        setTimeout(() => {
+                            hide_waiting_screen();
+                        }, 2000);
+                    }
 
                     title.textContent = "Votez !";
                     subtitle.textContent = "Tour " + data.round + "/" + data.game_settings.max_round;
