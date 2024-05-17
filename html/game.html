@@ -31,6 +31,7 @@
                     <p></p>
                     <h5>...</h5>
                 </div>
+                <div class="words words-left"></div>
                 <img src="./resources/hand_cursor.png" alt="" class="hand_cursor">
                 <div class="player_score hidden">
                     <span class="player_score_value"></span><span class="reward_score_value"></span>
@@ -45,6 +46,7 @@
                     <p></p>
                     <h5>...</h5>
                 </div>
+                <div class="words words-right"></div>
                 <img src="./resources/hand_cursor.png" alt="" class="hand_cursor">
                 <div class="player_score hidden">
                     <span class="player_score_value"></span><span class="reward_score_value"></span>
@@ -58,6 +60,7 @@
                     <p></p>
                     <h5>...</h5>
                 </div>
+                <div class="words words-left"></div>
                 <img src="./resources/hand_cursor.png" alt="" class="hand_cursor">
                 <div class="player_score hidden">
                     <span class="player_score_value"></span><span class="reward_score_value"></span>
@@ -72,6 +75,7 @@
                     <p></p>
                     <h5>...</h5>
                 </div>
+                <div class="words words-right"></div>
                 <img src="./resources/hand_cursor.png" alt="" class="hand_cursor">
                 <div class="player_score hidden">
                     <span class="player_score_value"></span><span class="reward_score_value"></span>
@@ -85,6 +89,7 @@
                     <p></p>
                     <h5>...</h5>
                 </div>
+                <div class="words words-left"></div>
                 <img src="./resources/hand_cursor.png" alt="" class="hand_cursor">
                 <div class="player_score hidden">
                     <span class="player_score_value"></span><span class="reward_score_value"></span>
@@ -99,6 +104,7 @@
                     <p></p>
                     <h5>...</h5>
                 </div>
+                <div class="words words-right"></div>
                 <img src="./resources/hand_cursor.png" alt="" class="hand_cursor">
                 <div class="player_score hidden">
                     <span class="player_score_value"></span><span class="reward_score_value"></span>
@@ -112,6 +118,7 @@
                     <p></p>
                     <h5>...</h5>
                 </div>
+                <div class="words words-left"></div>
                 <img src="./resources/hand_cursor.png" alt="" class="hand_cursor">
                 <div class="player_score hidden">
                     <span class="player_score_value"></span><span class="reward_score_value"></span>
@@ -126,6 +133,7 @@
                     <p></p>
                     <h5>...</h5>
                 </div>
+                <div class="words"></div>
                 <img src="./resources/hand_cursor.png" alt="" class="hand_cursor">
                 <div class="player_score hidden">
                     <span class="player_score_value"></span><span class="reward_score_value"></span>
@@ -343,6 +351,7 @@
                 const player_score = player_div.getElementsByClassName("player_score")[0];
                 const player_score_value = player_score.getElementsByClassName("player_score_value")[0];
                 const reward_score_value = player_score.getElementsByClassName("reward_score_value")[0];
+                const words = player_div.getElementsByClassName("words")[0];
                 const talks = player_div.querySelector(".talks");
                 const message = talks.querySelector("p");
 
@@ -358,6 +367,8 @@
                 talks.classList.remove("isTalking");
                 player_div.classList.remove("selected");
                 player_div.classList.remove("hovered");
+                player_div.classList.remove("selectable");
+                player_div.classList.remove("haswords");
 
                 if(!player_score.classList.contains("hidden")) player_score.classList.add("hidden");
 
@@ -368,6 +379,23 @@
 
                     case 1:
                     case 2:
+
+                        player_div.classList.add("haswords")
+
+                        player_div.onmouseenter = function() { onMouseOverPlayer(player_div); };
+                        player_div.onmouseleave = function() { onMouseExitedPlayer(player_div); };
+
+
+                        while (words.firstChild)
+                        {
+                            words.removeChild(words.firstChild);
+                        }
+
+                        for (let i = 0; i < data.game_settings.max_words; i++)
+                        {
+                            if(player.words[i] != undefined) words.innerHTML += `<h1>${player.words[i]}</h1>`
+                            else words.innerHTML += `<h1>...</h1>`
+                        }
 
                         if(player.is_talking)
                         {
@@ -390,6 +418,8 @@
 
                         if(players[player_id].vote == undefined && i !== player_id)
                         {
+                            player_div.classList.add("selectable")
+
                             player_div.onmouseenter = function() { onMouseOverPlayer(player_div); };
                             player_div.onmouseleave = function() { onMouseExitedPlayer(player_div); };
                             player_div.onclick = function() { onClickPlayer(i, players.length); };

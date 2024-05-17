@@ -233,12 +233,12 @@
     transform: rotate(-40deg);
 }
 
-.player.hovered .hand_cursor
+.player.selectable.hovered .hand_cursor
 {
     opacity: 0.5;
 }
 
-.player.selected .hand_cursor
+.player.selectable.selected .hand_cursor
 {
     opacity: 1;
 }
@@ -369,11 +369,15 @@ input[type="text"]::placeholder
 .talks p
 {
     margin: 0px;
+    width: 100%;
+    text-align: center;
 }
 
 .talks h5
 {
     margin: 0px;
+    width: 100%;
+    text-align: center;
 }
 
 .talks
@@ -416,25 +420,48 @@ input[type="text"]::placeholder
     display: none;
 }
 
-.colored-background
+.words
 {
-    height: 95px;
-    width: 95px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 10px;
-}
-
-.colored-background.hovered
-{
+    display: none;
     background-color: var(--light_color);
+    width: min(40vw, max(20vw, 125px));
+    height: auto;
+    padding: 7px;
+    z-index: 10;
+    border-radius: 10px;
 }
 
-.colored-background.selected
+.words h1
 {
-    background-color: var(--dark_color);
+    text-align: center;
+    width: 100%;
+    font-size: 14px;
+    line-height: 14px;
+    color: var(--black_color);
+}
+
+.words.words-left
+{
+    position: absolute;
+    top: 0px;
+    right: calc(50% + 15px);
+}
+
+.words.words-right
+{
+    position: absolute;
+    top: 0px;
+    left: calc(50% + 15px);
+}
+
+.player.haswords.hovered .words
+{
+    display: block;
+}
+
+.player.haswords.hovered .talks
+{
+    display: none;
 }
 
 .player .player_icon
