@@ -7,9 +7,10 @@ function getNewRoomId(rooms)
     return roomId
 }
 
-function generateRoomId() {
-    return 9999;
-    //return Math.floor(Math.random() * 9000) + 1000;
+function generateRoomId() 
+{
+    //return 9999;
+    return Math.floor(Math.random() * 9000) + 1000;
 }
 
 module.exports = {
